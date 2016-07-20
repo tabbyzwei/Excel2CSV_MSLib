@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.chbSaveProcessed = new System.Windows.Forms.CheckBox();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // btnOpenFile
             // 
@@ -59,6 +56,13 @@
             this.chbSaveProcessed.Text = "保存过程文件";
             this.chbSaveProcessed.UseVisualStyleBackColor = true;
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "notifyIcon";
+            this.notifyIcon.Visible = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -77,10 +81,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button btnOpenFile;
         private System.Windows.Forms.CheckBox chbSaveProcessed;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }
 

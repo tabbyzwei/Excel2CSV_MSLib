@@ -40,7 +40,7 @@ namespace ExcelTest2
         public Form1()
         {
             InitializeComponent();
-            this.Text += " Ver0.1.160720.1";
+            this.Text += " Ver0.1.160720.2";
         }
         void initailExcel()
         {
@@ -115,10 +115,12 @@ namespace ExcelTest2
                 GC.Collect();
                 if (sbResult.ToString().Equals(""))
                 {
+                    notifyIcon.ShowBalloonTip(1000, "没问题~", "所有Sheet处理完毕~",ToolTipIcon.Info);
                     MessageBox.Show("所有Sheet处理完毕~","没问题~");
                 }
                 else
                 {
+                    notifyIcon.ShowBalloonTip(1000, "有问题……", sbResult.ToString(), ToolTipIcon.Warning);
                     MessageBox.Show(sbResult.ToString(),"有问题……");
                 }
             }

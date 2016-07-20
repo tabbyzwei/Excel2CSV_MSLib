@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExcelTest2.exe" size="173992">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExcelTest2.exe" size="242088">
       <assemblyIdentity name="ExcelTest2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yR8io/Hqg9OP9oij+DgoGLT7MHoxz3OBM1x9D6dEky0=</dsig:DigestValue>
+        <dsig:DigestValue>HlqldU3JXawa8WcIGvseJNp+R0eZMzQArTem/BqhxV8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
