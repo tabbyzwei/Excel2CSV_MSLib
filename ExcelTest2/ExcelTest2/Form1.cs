@@ -35,10 +35,12 @@ namespace ExcelTest2
         Excel.Application app = null;
         Excel.Workbook wbks;
 
+        Thread th = null;
+
         public Form1()
         {
             InitializeComponent();
-            this.Text += " Ver0.1.160708.2";
+            this.Text += " Ver0.1.160720.1";
         }
         void initailExcel()
         {
@@ -473,26 +475,35 @@ namespace ExcelTest2
         }
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fileOpen = new OpenFileDialog();
-            fileOpen.Filter = "Excel|*.xlsx";
-            if (fileOpen.ShowDialog() == DialogResult.OK)
+            if (th != null && th.ThreadState == System.Threading.ThreadState.Running)
             {
-                if (fileOpen.CheckFileExists)
+                MessageBox.Show("上一个表格还没处理完，你别着急");
+            }
+            else
+            {
+                OpenFileDialog fileOpen = new OpenFileDialog();
+                fileOpen.Filter = "Excel|*.xlsx";
+                if (fileOpen.ShowDialog() == DialogResult.OK)
                 {
-                    //get file path
-                    pathFile = fileOpen.FileName;
-                    //get Direction
-                    pathDirection = System.IO.Path.GetDirectoryName(pathFile);
-                    //get file name
-                    fileName = System.IO.Path.GetFileNameWithoutExtension(pathFile);
-                    //debug output file name
-                    System.Diagnostics.Debug.WriteLine("\r\nDebug Output:\r\n" + pathFile + "\r\n");
-                    //process the file
-                    fileProcess();
-                }
-                else
-                {
-                    MessageBox.Show("没有文件");
+                    if (fileOpen.CheckFileExists)
+                    {
+                        //get file path
+                        pathFile = fileOpen.FileName;
+                        //get Direction
+                        pathDirection = System.IO.Path.GetDirectoryName(pathFile);
+                        //get file name
+                        fileName = System.IO.Path.GetFileNameWithoutExtension(pathFile);
+                        //debug output file name
+                        System.Diagnostics.Debug.WriteLine("\r\nDebug Output:\r\n" + pathFile + "\r\n");
+                        //process the file
+                        //fileProcess();
+                        th = new Thread(new ThreadStart(fileProcess));
+                        th.Start();
+                    }
+                    else
+                    {
+                        MessageBox.Show("没有文件");
+                    }
                 }
             }
         }
